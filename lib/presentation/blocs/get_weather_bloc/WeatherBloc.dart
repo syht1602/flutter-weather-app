@@ -1,0 +1,3 @@
+class WeatherBloc {
+  // yield WeatherLoading();
+}
