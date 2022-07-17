@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
-  List properties = const <dynamic>[];
+  final List properties = const <dynamic>[];
   Failure(properties) : super();
   @override
   // TODO: implement props
@@ -10,7 +10,7 @@ abstract class Failure extends Equatable {
 
 class ServerFailure implements Failure{
   @override
-  List properties;
+  final List properties;
   ServerFailure(this.properties);
 
   @override
@@ -25,7 +25,7 @@ class ServerFailure implements Failure{
 
 class CacheFailure implements Failure{
   @override
-  List properties;
+  final List properties;
   CacheFailure(this.properties);
 
   @override

@@ -24,9 +24,10 @@ class WeatherRepositoryImpl implements WeatherRepository {
           {'message': 'Network is not available !'}
         ]);
       }
-    } catch (e) {
-      print(e);
-      throw ServerException();
+    } on ServerException {
+      // print(e);
+      throw ServerFailure([
+          {'message': 'Network is not available !'}]);
     }
   }
 }
