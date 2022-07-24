@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_counter_demo_app/presentation/cubits/counter_cubit.dart';
 import 'package:flutter_counter_demo_app/presentation/pages/get_weather_page.dart';
+import 'injection_container.dart' as di;
 
-void main() {
+Future<void> main() async {
+  await di.init();
   runApp(const MyApp());
 }
 

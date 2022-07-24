@@ -1,4 +1,4 @@
-import 'package:data_connection_checker/data_connection_checker.dart';
+import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:flutter_counter_demo_app/core/network/network_info.dart';
 import 'package:flutter_counter_demo_app/data/datasources/get_weather_location_remote.dart';
 import 'package:flutter_counter_demo_app/data/repositories/weather_repository_impl.dart';
