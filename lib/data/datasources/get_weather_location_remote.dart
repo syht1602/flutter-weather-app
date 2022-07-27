@@ -27,8 +27,10 @@ class GetWeatherLocationRemoteImpl implements GetWeatherLocationRemote {
           'Content-Type': 'application/json',
         });
     if (response.statusCode == 200) {
+      print('Raw data : ${response.body.toString()}');
       return RawWeather.fromJson(jsonDecode(response.body));
     } else {
+      print('Raw data exception');
       throw ServerException();
     }
   }

@@ -5,6 +5,7 @@ import 'package:flutter_counter_demo_app/presentation/blocs/get_weather_bloc/get
 import 'package:flutter_counter_demo_app/presentation/widgets/common_widget/get_weather_widget.dart';
 import 'package:flutter_counter_demo_app/presentation/widgets/common_widget/loading_widget.dart';
 import 'package:flutter_counter_demo_app/presentation/widgets/common_widget/show_message_widget.dart';
+import 'package:flutter_counter_demo_app/presentation/widgets/common_widget/weather_location_search_input_widget.dart';
 
 class GetWeatherPage extends StatelessWidget {
   const GetWeatherPage({Key? key}) : super(key: key);
@@ -33,10 +34,7 @@ class GetWeatherPage extends StatelessWidget {
             } else if (state is Error) {
               return ShowMessageWidget(msg: state.message);
             }
-            return Container(
-              alignment: Alignment.center,
-              child: Text('Initial state'),
-            );
+            return WeatherLocationSearchInputWidget();
           },
         ));
   }
