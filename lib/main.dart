@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_counter_demo_app/presentation/cubits/counter_cubit.dart';
 import 'package:flutter_counter_demo_app/presentation/pages/get_weather_page.dart';
+
 import 'injection_container.dart' as di;
 
 Future<void> main() async {
@@ -13,17 +14,29 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  // @override
+  // Widget build(BuildContext context) {
+  //   return BlocProvider(
+  //     create: (context) => GetWeatherBloc(di.sl<GetWeatherLocationUseCase>()),
+  //     child: MaterialApp(
+  //       title: 'Flutter Demo',
+  //       theme: ThemeData(
+  //         primarySwatch: Colors.blue,
+  //       ),
+  //       home: const GetWeatherPage(),
+  //     ),
+  //   );
+  // }
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CounterCubit>(
-      create: (context) => CounterCubit(),
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const GetWeatherPage(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const GetWeatherPage(),
     );
   }
 }

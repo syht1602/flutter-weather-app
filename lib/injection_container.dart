@@ -13,6 +13,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
   //Bloc
   sl.registerFactory(() => GetWeatherBloc(sl()));
+
   //Use case
   sl.registerLazySingleton(() => GetWeatherLocationUseCase(sl()));
 

@@ -29,17 +29,19 @@ class _WeatherLocationSearchInputWidgetState
             location = value;
           },
           onSubmitted: (_) {
-            _getLocationWeather();
+            _getLocationWeather(context);
           },
         ),
         SizedBox(height: 10),
         OutlinedButton(
-            onPressed: _getLocationWeather, child: Text('Get weather'))
+            onPressed: () => _getLocationWeather(context),
+            child: Text('Get weather'))
       ],
     );
   }
 
-  void _getLocationWeather() {
+  void _getLocationWeather(BuildContext context) {
+    print("Search for location : $location");
     _locationInputController.clear();
     BlocProvider.of<GetWeatherBloc>(context)
         .add(GetWeatherLocationEvent(location));

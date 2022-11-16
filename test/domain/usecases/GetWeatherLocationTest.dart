@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter_counter_demo_app/domain/repositories/weather_repository.dart';
 import 'package:flutter_counter_demo_app/domain/usecases/get_weather_location_usecase.dart';
 import 'package:flutter_test/flutter_test.dart';

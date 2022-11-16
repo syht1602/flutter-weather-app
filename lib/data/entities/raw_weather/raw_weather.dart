@@ -116,6 +116,6 @@ class RawWeather {
       cod.hashCode;
 
   WeatherModel toWeatherEntity() {
-    return WeatherModel(main!.temp);
+    return WeatherModel(main!.temp, name);
   }
 }

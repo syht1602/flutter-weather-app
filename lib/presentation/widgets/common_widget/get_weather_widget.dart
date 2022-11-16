@@ -11,7 +11,12 @@ class GetWeatherWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      child: Text('Temp is : ${weatherModel.temp}'),
+      child: Column(
+        children: [
+          Text('Temp is : ${weatherModel.temp}'),
+          Text('Country : ${weatherModel.countryName}')
+        ],
+      ),
     );
   }
 }

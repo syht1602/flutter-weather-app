@@ -26,14 +26,19 @@ class GetWeatherPage extends StatelessWidget {
         child: BlocBuilder<GetWeatherBloc, GetWeatherState>(
           builder: (context, state) {
             if (state is Empty) {
+              print("State : empty");
               return ShowMessageWidget(msg: "Initial state");
             } else if (state is Loading) {
+              print("State : Loading");
               return LoadingWidget();
             } else if (state is Loaded) {
+              print("State : Loaded");
               return GetWeatherWidget(weatherModel: state.weatherModel);
             } else if (state is Error) {
+              print("State : Error");
               return ShowMessageWidget(msg: state.message);
             }
+            print("State : WeatherLocationSearchInputWidget");
             return WeatherLocationSearchInputWidget();
           },
         ));

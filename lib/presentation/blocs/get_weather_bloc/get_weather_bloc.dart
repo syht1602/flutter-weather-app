@@ -4,6 +4,7 @@ import 'package:flutter_counter_demo_app/domain/models/weather_model.dart';
 import 'package:flutter_counter_demo_app/domain/usecases/get_weather_location_usecase.dart';
 
 part 'get_weather_event.dart';
+
 part 'get_weather_state.dart';
 
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
@@ -12,18 +13,18 @@ class GetWeatherBloc extends Bloc<GetWeatherEvent, GetWeatherState> {
   final GetWeatherLocationUseCase getWeatherLocationUseCase;
 
   GetWeatherBloc(this.getWeatherLocationUseCase) : super(GetWeatherInitial()) {
-    on<GetWeatherEvent>((event, emit) async* {
+    on<GetWeatherLocationEvent>((event, emit) async {
       // TODO: implement event handler
-      if (event is GetWeatherLocationEvent) {
-        yield Loading();
-        try {
-          final locationWeather = await getWeatherLocationUseCase
-              .invoke(GetWeatherLocationParams(event.location));
-          yield (Loaded(locationWeather));
-        } catch (failure) {
-          yield (Error(SERVER_FAILURE_MESSAGE));
-          // _handleException(failure);
-        }
+      print("GetWeatherBloc Loading");
+      emit(Loading());
+      Future.delayed(Duration(seconds: 5));
+      try {
+        final locationWeather = await getWeatherLocationUseCase
+            .invoke(GetWeatherLocationParams(event.location));
+        emit(Loaded(locationWeather));
+      } catch (failure) {
+        emit(Error(SERVER_FAILURE_MESSAGE));
+        // _handleException(failure);
       }
     });
   }
